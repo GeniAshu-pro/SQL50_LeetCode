@@ -1,0 +1,48 @@
+Here is Only  Solution for Leetcode 1 to 10
+
+Q1: SELECT Product_id FROM Products WHERE low_fats = 'Y' AND recyclable = 'Y' ;
+
+Q2: SELECT name FORM Customer WHERE referee_id <> 2 OR referee_id IS NuLL ;
+
+Q3:SELECT NAME,POPULATION,AREA FROM WORLD WHERE POPULATION >= 25000000 OR AREA>=3000000 ;
+
+Q4:SELECT DISTINCT author_id AS id FROM Views WHERE author_id = viewer_id ;
+
+Q5:SELECT tweet_id FROM Tweets WHERE CHAR_LENGTH(content)>15 ;
+
+Q6:SELECT Employees.id , EmployeeUNI.id
+FROM Employees
+LEFT JOIN EmployeeUNI ON Employees.id = EmployeeUNI.id ;
+
+Q7:SELECT product_name.Product , year.Sales , price.Sales
+FROM Sales
+LEFT JOIN Product
+ON Sales.product_id = Product.product_id ;
+
+Q8:SELECT Visits.customer_id , COUNT(*) AS count_no_trans
+   FROM Visits
+   LEFT JOIN Transactions
+   ON Visits.visit_id = Transactions.visit_id
+   WHERE Transactions.transaction_id IS NULL
+   GROUP BY Visits.customer_id ;
+
+
+Q9:WITH ReversedWeather AS (
+   SELECT id,
+   recordDate,
+   temperature,
+   LAG(Temperature)OVER(Order By (recordDate)) AS prev_temp,
+   LAG(recordDate)OVER(Order By (recordDate)) AS prev_date
+   FROM Weather
+   )
+   SELECT id
+   FROM ReversedWeather
+   WHERE Temperature > prev_temp AND DATEDIFF(recordDate ,prev_date)=1 ;
+
+Q10:SELECT a1.machine_id , ROUND(AVG(a2.timestamp - a1.timestamp),3) AS processing_time
+    FROM Activity a1 
+    JOIN Activity a2
+    ON a1.machine_id = a2.machine_id 
+    AND a1.process_id =a2.process_id 
+    AND a1.timestamp<a2.timestamp
+    
