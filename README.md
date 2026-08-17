@@ -43,7 +43,7 @@ Each file contains the solutions for the corresponding **10 LeetCode SQL problem
 
 ## 📈 Progress
 
-**0 / 50 Completed**
+**10/ 50 Completed**
 
 > Progress will be updated as I solve each problem.
 
